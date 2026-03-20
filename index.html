@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="tuCLrRSQFSx2XYr55Yps3M5AOznprQIIfFW9rXep83I"/>
+<meta name="description" content="Rankrid is a full-service digital agency in India — Web Development, SEO, Local SEO, Social Media, Branding, Automation, Cloud & more. Trusted by businesses across India.">
+<meta name="keywords" content="web development India, SEO agency India, local SEO, digital marketing India, branding design, e-commerce development, automation SaaS, cloud hosting India">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Rankrid — Web Development, SEO & Digital Agency India">
+<meta property="og:description" content="Full-service digital agency — web, SEO, branding, automation, and cloud services. Trusted by businesses across India.">
+<meta property="og:url" content="https://rankrid.in">
+<link rel="canonical" href="https://rankrid.in">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rankrid — Web Development, SEO & Digital Agency India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════
+   TOKENS
+═══════════════════════════════════ */
+:root {
+  --s0:#050507; --s1:#08080c; --s2:#0c0c12;
+  --s3:#101018; --s4:#15151f; --s5:#1a1a26;
+  --ac:#1d6b58;  --ac2:#24856e;
+  --ac-dim:rgba(29,107,88,.09);  --ac-rim:rgba(29,107,88,.22);
+  --ac-glow:rgba(29,107,88,.14);
+  --nv:#1b3a6b; --nv-dim:rgba(27,58,107,.08); --nv-rim:rgba(27,58,107,.22);
+  --w:#dde1eb; --w2:rgba(221,225,235,.58);
+  --w3:rgba(221,225,235,.3); --w4:rgba(221,225,235,.07); --w5:rgba(221,225,235,.04);
+  --b:rgba(255,255,255,.065); --b2:rgba(255,255,255,.11);
+  --bac:rgba(29,107,88,.2);
+  --r:11px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--s0); color:var(--w);
+  font-family:'Outfit',system-ui,sans-serif;
+  font-weight:300; font-size:16px; line-height:1.65;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased; cursor:none;
+}
+
+/* ─ CURSOR ─ */
+#cd,#cr{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%);will-change:left,top;}
+#cd{width:5px;height:5px;background:var(--w);}
+#cr{width:28px;height:28px;border:1px solid rgba(255,255,255,.25);transition:width .22s cubic-bezier(.23,1,.32,1),height .22s,border-color .22s;}
+body.ch #cr{width:46px;height:46px;border-color:rgba(255,255,255,.45);}
+body.ch #cd{transform:translate(-50%,-50%) scale(1.5);}
+
+/* ─ BG ─ */
+#bgc{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(221,225,235,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(221,225,235,.012) 1px,transparent 1px);background-size:88px 88px;}
+.grain{position:fixed;inset:-200px;z-index:0;pointer-events:none;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px;animation:grain 9s steps(1) infinite;}
+@keyframes grain{0%{transform:translate(0,0)}10%{transform:translate(-2%,-3%)}20%{transform:translate(3%,2%)}30%{transform:translate(-1%,4%)}40%{transform:translate(4%,-1%)}50%{transform:translate(-3%,3%)}60%{transform:translate(2%,-4%)}70%{transform:translate(-4%,1%)}80%{transform:translate(1%,-2%)}90%{transform:translate(-2%,4%)}100%{transform:translate(0,0)}}
+.orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0;animation:orbD ease-in-out infinite;}
+.o1{width:560px;height:560px;background:radial-gradient(circle,rgba(29,107,88,.055) 0%,transparent 70%);top:-180px;left:-120px;animation-duration:22s;}
+.o2{width:420px;height:420px;background:radial-gradient(circle,rgba(27,58,107,.055) 0%,transparent 70%);bottom:-80px;right:-100px;animation-duration:28s;animation-delay:-13s;}
+@keyframes orbD{0%,100%{transform:translate(0,0)}40%{transform:translate(28px,-18px)}70%{transform:translate(-18px,28px)}}
+
+/* ─ NAV ─ */
+nav{position:fixed;top:0;left:0;right:0;z-index:800;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 56px;transition:background .4s,border-color .4s;}
+nav.scrolled{background:rgba(5,5,7,.94);backdrop-filter:blur(28px) saturate(1.4);border-bottom:1px solid var(--b);}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Outfit',sans-serif;font-weight:600;font-size:18px;letter-spacing:.01em;color:var(--w);text-decoration:none;}
+.logo-mark{width:30px;height:30px;border:1px solid var(--b2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--w);background:var(--s4);transition:border-color .3s,box-shadow .3s;}
+.logo:hover .logo-mark{border-color:var(--ac-rim);box-shadow:0 0 16px var(--ac-glow);}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links a{color:var(--w3);text-decoration:none;font-size:13px;font-weight:400;letter-spacing:.03em;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--w2);transition:width .28s cubic-bezier(.23,1,.32,1);}
+.nav-links a:hover{color:var(--w);}
+.nav-links a:hover::after{width:100%;}
+
+/* dropdown */
+.nav-drop{position:relative;}
+.nav-drop-menu{
+  position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);
+  background:var(--s3);border:1px solid var(--b2);border-radius:var(--r);
+  padding:8px 0;min-width:220px;
+  opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-8px);
+  transition:opacity .25s,transform .25s cubic-bezier(.23,1,.32,1);
+  z-index:100;
+  box-shadow:0 24px 60px rgba(0,0,0,.5);
+}
+.nav-drop:hover .nav-drop-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0);}
+.nav-drop-menu a{display:block;padding:9px 18px;font-size:13px;color:var(--w3);text-decoration:none;transition:color .2s,background .2s;white-space:nowrap;font-weight:400;letter-spacing:.02em;}
+.nav-drop-menu a::after{display:none;}
+.nav-drop-menu a:hover{color:var(--w);background:var(--s4);}
+
+.nav-cta{background:var(--s4)!important;border:1px solid var(--b2)!important;color:var(--w)!important;padding:9px 22px!important;border-radius:8px!important;font-size:13px!important;font-weight:500!important;transition:border-color .3s,background .3s,box-shadow .3s!important;}
+.nav-cta:hover{border-color:var(--ac-rim)!important;box-shadow:0 0 20px var(--ac-glow)!important;}
+.nav-cta::after{display:none!important;}
+
+/* ─ HERO ─ */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:160px 48px 100px;overflow:hidden;}
+.hcorner{position:absolute;width:20px;height:20px;opacity:.16;}
+.hc-tl{top:80px;left:56px;border-top:1px solid var(--w);border-left:1px solid var(--w);}
+.hc-tr{top:80px;right:56px;border-top:1px solid var(--w);border-right:1px solid var(--w);}
+.hc-bl{bottom:36px;left:56px;border-bottom:1px solid var(--w);border-left:1px solid var(--w);}
+.hc-br{bottom:36px;right:56px;border-bottom:1px solid var(--w);border-right:1px solid var(--w);}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:var(--s3);border:1px solid var(--b2);color:var(--w3);font-size:11px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;padding:7px 18px;border-radius:100px;margin-bottom:44px;opacity:0;animation:dropIn .8s .1s ease forwards;}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:var(--ac2);animation:pulse 2.5s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(36,133,110,.6)}50%{box-shadow:0 0 0 5px rgba(36,133,110,0)}}
+.hero-h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(48px,7vw,90px);font-weight:400;line-height:.97;letter-spacing:-.02em;margin-bottom:0;max-width:860px;}
+.h1l{display:block;overflow:hidden;opacity:0;transform:translateY(90%);animation:lineUp .9s cubic-bezier(.23,1,.32,1) forwards;}
+.h1l:nth-child(1){animation-delay:.3s;}
+.h1l:nth-child(2){animation-delay:.44s;}
+.h1l:nth-child(3){animation-delay:.58s;color:transparent;background:linear-gradient(100deg,var(--ac2) 0%,var(--w) 40%,var(--ac2) 100%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;animation:lineUp .9s .58s cubic-bezier(.23,1,.32,1) forwards,gradScroll 8s 1.5s linear infinite;}
+@keyframes lineUp{to{opacity:1;transform:translateY(0)}}
+@keyframes dropIn{to{opacity:1;transform:translateY(0)}}
+@keyframes gradScroll{0%{background-position:0% center}100%{background-position:220% center}}
+.hero-sub{font-size:16px;color:var(--w2);font-weight:300;line-height:1.85;max-width:560px;margin:34px auto 52px;opacity:0;transform:translateY(18px);animation:fadeUp .9s .8s ease forwards;}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(18px);animation:fadeUp .9s .96s ease forwards;}
+.btn-solid{display:inline-flex;align-items:center;gap:8px;background:var(--w);color:var(--s0);padding:13px 32px;border-radius:9px;font-size:13px;font-weight:600;letter-spacing:.05em;text-decoration:none;transition:transform .28s,box-shadow .28s;position:relative;overflow:hidden;}
+.btn-solid::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.12),transparent);}
+.btn-solid::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s ease;}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(0,0,0,.4);}
+.btn-solid:hover::after{left:160%;}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:var(--s3);color:var(--w2);padding:13px 28px;border-radius:9px;font-size:13px;font-weight:400;letter-spacing:.03em;text-decoration:none;border:1px solid var(--b);transition:border-color .25s,color .25s,transform .25s;}
+.btn-ghost:hover{border-color:var(--b2);color:var(--w);transform:translateY(-1px);}
+.btn-ac{display:inline-flex;align-items:center;gap:8px;background:var(--ac);color:var(--w);padding:13px 28px;border-radius:9px;font-size:13px;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:transform .28s,box-shadow .28s,background .25s;position:relative;overflow:hidden;}
+.btn-ac::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.1),transparent);}
+.btn-ac:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--ac-glow);background:var(--ac2);}
+
+/* hero pins */
+.hero-pins{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.pin{position:absolute;animation:pinFloat ease-in-out infinite;}
+@keyframes pinFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+/* ─ RIBBON ─ */
+.ribbon{position:relative;z-index:1;overflow:hidden;border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:12px 0;background:var(--s1);}
+.ribbon::before,.ribbon::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;}
+.ribbon::before{left:0;background:linear-gradient(90deg,var(--s1),transparent);}
+.ribbon::after{right:0;background:linear-gradient(-90deg,var(--s1),transparent);}
+.rib-track{display:flex;width:max-content;animation:marquee 32s linear infinite;}
+.rib-track:hover{animation-play-state:paused;}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.rib-item{display:inline-flex;align-items:center;gap:10px;padding:0 36px;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--w3);white-space:nowrap;}
+.rib-dot{width:3px;height:3px;border-radius:50%;background:var(--ac2);flex-shrink:0;opacity:.7;}
+
+/* ─ STATS ─ */
+.stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--b);background:var(--s1);overflow:hidden;}
+.stats::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--ac),transparent);opacity:.3;}
+.stat{padding:42px 24px;border-right:1px solid var(--b);text-align:center;position:relative;overflow:hidden;transition:background .3s;}
+.stat:last-child{border-right:none;}
+.stat:hover{background:rgba(29,107,88,.04);}
+.stat::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:1px;background:var(--ac);transition:width .4s;}
+.stat:hover::before{width:56px;}
+.stat-n{font-family:'DM Serif Display',serif;font-size:48px;font-weight:400;line-height:1;letter-spacing:-.02em;color:var(--w);margin-bottom:6px;}
+.stat-n sup{font-family:'Outfit',sans-serif;font-size:.36em;color:var(--ac2);vertical-align:super;font-weight:500;}
+.stat-l{font-size:10px;color:var(--w3);letter-spacing:.12em;text-transform:uppercase;font-weight:400;}
+
+/* ─ SHARED SECTION ─ */
+.sec{position:relative;z-index:1;padding:110px 0;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 56px;}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ac2);margin-bottom:20px;}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--ac);opacity:.7;}
+.sec-title{font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,50px);font-weight:400;letter-spacing:-.02em;line-height:1.07;margin-bottom:18px;}
+.sec-sub{font-size:15px;color:var(--w2);font-weight:300;max-width:520px;line-height:1.85;}
+
+/* ─ SERVICES GRID ─ */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b);border:1px solid var(--b);border-radius:var(--r);overflow:hidden;margin-top:60px;}
+.svc{background:var(--s2);padding:40px 34px;position:relative;overflow:hidden;transition:background .3s;transform-style:preserve-3d;}
+.svc::before{content:'';position:absolute;top:0;left:-100%;right:100%;height:1px;background:linear-gradient(90deg,transparent,var(--ac),transparent);transition:left .55s ease,right .55s ease;}
+.svc:hover::before{left:0;right:0;}
+.svc::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--cx,50%) var(--cy,50%),rgba(29,107,88,.06) 0%,transparent 55%);opacity:0;transition:opacity .35s;pointer-events:none;}
+.svc:hover::after{opacity:1;}
+.svc:hover{background:var(--s3);}
+.svc-idx{font-size:11px;color:var(--w3);letter-spacing:.14em;margin-bottom:24px;font-weight:400;}
+.svc-icon{width:44px;height:44px;border:1px solid var(--b2);border-radius:10px;background:var(--s4);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:22px;transition:transform .44s cubic-bezier(.23,1,.32,1),border-color .3s,box-shadow .4s;transform-style:preserve-3d;}
+.svc:hover .svc-icon{transform:rotateY(20deg) rotateX(-8deg) translateZ(6px);border-color:var(--ac-rim);box-shadow:0 0 18px var(--ac-glow);}
+.svc-title{font-family:'DM Serif Display',serif;font-size:18px;font-weight:400;letter-spacing:-.01em;margin-bottom:10px;line-height:1.3;}
+.svc-desc{font-size:13px;color:var(--w2);font-weight:300;line-height:1.8;margin-bottom:18px;}
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.svc-tag{font-size:10px;color:var(--w3);background:var(--s4);border:1px solid var(--b);padding:3px 9px;border-radius:100px;letter-spacing:.04em;}
+.svc-link{display:block;margin-top:18px;font-size:11px;color:var(--ac2);letter-spacing:.08em;font-weight:500;opacity:0;transform:translateX(-8px);transition:opacity .28s,transform .28s;text-transform:uppercase;}
+.svc:hover .svc-link{opacity:1;transform:translateX(0);}
+
+/* ─ WHY US ─ */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:60px;}
+.why-card{background:var(--s2);border:1px solid var(--b);border-radius:var(--r);padding:36px 30px;position:relative;overflow:hidden;transition:border-color .3s;transform-style:preserve-3d;}
+.why-card:hover{border-color:var(--bac);}
+.why-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--cx,50%) var(--cy,50%),rgba(29,107,88,.05) 0%,transparent 55%);opacity:0;transition:opacity .3s;pointer-events:none;}
+.why-card:hover::after{opacity:1;}
+.why-ico{font-size:28px;margin-bottom:16px;}
+.why-title{font-family:'DM Serif Display',serif;font-size:18px;font-weight:400;margin-bottom:10px;}
+.why-desc{font-size:13px;color:var(--w2);font-weight:300;line-height:1.8;}
+
+/* ─ PROCESS ─ */
+.proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--b);border:1px solid var(--b);border-radius:var(--r);overflow:hidden;margin-top:60px;}
+.proc{background:var(--s2);padding:36px 26px;position:relative;overflow:hidden;transition:background .3s;transform-style:preserve-3d;text-align:center;}
+.proc:hover{background:var(--s3);}
+.proc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--ac),transparent);transform:scaleX(0);transition:transform .45s;}
+.proc:hover::before{transform:scaleX(1);}
+.proc-n{font-family:'DM Serif Display',serif;font-size:52px;font-weight:400;line-height:1;color:rgba(221,225,235,.05);margin-bottom:14px;}
+.proc-ico{font-size:26px;margin-bottom:12px;}
+.proc-title{font-family:'DM Serif Display',serif;font-size:15px;font-weight:400;margin-bottom:8px;}
+.proc-desc{font-size:12px;color:var(--w2);font-weight:300;line-height:1.75;}
+
+/* ─ INDUSTRIES ─ */
+.ind-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:60px;}
+.ind-card{background:var(--s2);border:1px solid var(--b);border-radius:var(--r);padding:22px 18px;text-align:center;transition:border-color .3s,background .3s,transform .35s cubic-bezier(.23,1,.32,1);transform-style:preserve-3d;cursor:default;}
+.ind-card:hover{border-color:var(--bac);background:var(--s3);transform:translateY(-4px) rotateX(5deg);}
+.ind-ico{font-size:26px;margin-bottom:10px;}
+.ind-name{font-size:12px;color:var(--w2);font-weight:400;letter-spacing:.03em;}
+
+/* ─ TECH STACK ─ */
+.tech-sec{background:linear-gradient(180deg,var(--s0) 0%,var(--s1) 50%,var(--s0) 100%);}
+.tech-scroll{overflow:hidden;position:relative;margin-top:56px;}
+.tech-scroll::before,.tech-scroll::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+.tech-scroll::before{left:0;background:linear-gradient(90deg,var(--s1),transparent);}
+.tech-scroll::after{right:0;background:linear-gradient(-90deg,var(--s1),transparent);}
+.tech-track{display:flex;gap:12px;width:max-content;animation:marquee 28s linear infinite;}
+.tech-track2{animation-direction:reverse;animation-duration:34s;}
+.tech-item{display:flex;align-items:center;gap:10px;padding:12px 20px;background:var(--s2);border:1px solid var(--b);border-radius:9px;white-space:nowrap;transition:border-color .2s;}
+.tech-item:hover{border-color:var(--bac);}
+.tech-icon{width:20px;height:20px;filter:invert(1) opacity(.5);}
+.tech-name{font-size:12px;color:var(--w2);font-weight:400;letter-spacing:.03em;}
+
+/* ─ TESTIMONIALS ─ */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:60px;}
+.test-card{background:var(--s2);border:1px solid var(--b);border-radius:var(--r);padding:36px;transform-style:preserve-3d;transition:border-color .3s;position:relative;overflow:hidden;}
+.test-card:hover{border-color:var(--bac);}
+.test-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--b2),transparent);}
+.test-stars{display:flex;gap:3px;margin-bottom:16px;}
+.test-star{font-size:14px;}
+.test-q{font-size:14px;color:var(--w2);font-weight:300;line-height:1.85;margin-bottom:24px;}
+.test-author{display:flex;align-items:center;gap:12px;}
+.test-avatar{width:38px;height:38px;border-radius:50%;background:var(--s4);border:1px solid var(--b2);display:flex;align-items:center;justify-content:center;font-size:15px;}
+.test-name{font-size:13px;font-weight:500;color:var(--w);}
+.test-role{font-size:11px;color:var(--w3);}
+
+/* ─ PRICING ─ */
+.pricing-hd{text-align:center;}
+.pricing-hd .sec-sub{margin:0 auto;}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--b);border:1px solid var(--b);border-radius:var(--r);overflow:hidden;margin-top:60px;}
+.pc{background:var(--s2);padding:44px 36px;position:relative;overflow:hidden;transition:background .3s;transform-style:preserve-3d;}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--ac) 50%,transparent 100%);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.23,1,.32,1);}
+.pc:hover::before{transform:scaleX(1);}
+.pc:hover{background:var(--s3);}
+.pc-feat{background:linear-gradient(160deg,rgba(29,107,88,.07) 0%,var(--s3) 55%);border-left:1px solid var(--bac);border-right:1px solid var(--bac);}
+.pc-feat::before{transform:scaleX(1)!important;}
+.pop-tag{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--bac);background:var(--ac-dim);color:var(--ac2);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:24px;}
+.p-name{font-size:11px;color:var(--w3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;font-weight:400;}
+.p-price{display:flex;align-items:baseline;gap:2px;margin-bottom:10px;line-height:1;}
+.p-cur{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:var(--w2);padding-top:5px;}
+.p-amt{font-family:'DM Serif Display',serif;font-size:54px;font-weight:400;letter-spacing:-.02em;color:var(--w);}
+.p-per{font-size:12px;color:var(--w3);letter-spacing:.04em;margin-left:2px;}
+.p-desc{font-size:13px;color:var(--w2);line-height:1.75;margin-bottom:26px;font-weight:300;}
+.p-div{height:1px;background:var(--b);margin-bottom:22px;}
+.p-feats{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:34px;}
+.p-feats li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--w2);line-height:1.55;font-weight:300;}
+.fi{width:17px;height:17px;flex-shrink:0;margin-top:1px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;}
+.fy{background:rgba(29,107,88,.12);border:1px solid rgba(29,107,88,.28);color:var(--ac2);}
+.fy::before{content:'✓';font-weight:600;}
+.fn{background:var(--w5);border:1px solid var(--b);color:var(--w3);}
+.fn::before{content:'–';}
+.p-btn{display:block;width:100%;text-align:center;padding:13px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:all .28s;}
+.p-ghost{border:1px solid var(--b);color:var(--w2);background:var(--w5);}
+.p-ghost:hover{border-color:var(--b2);color:var(--w);transform:translateY(-1px);}
+.p-solid{background:var(--w);color:var(--s0);position:relative;overflow:hidden;}
+.p-solid::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.12),transparent);}
+.p-solid:hover{box-shadow:0 8px 30px rgba(0,0,0,.4);transform:translateY(-2px);}
+
+/* ─ ABOUT STRIP ─ */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:0;}
+.about-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+.ab{display:inline-flex;align-items:center;gap:7px;background:var(--s3);border:1px solid var(--b);border-radius:100px;padding:6px 14px;font-size:11px;color:var(--w2);font-weight:400;}
+.ab::before{content:'✓';color:var(--ac2);font-size:10px;font-weight:600;}
+.about-values{display:flex;flex-direction:column;gap:16px;}
+.av{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--s2);border:1px solid var(--b);border-radius:var(--r);transition:border-color .3s,transform .35s cubic-bezier(.23,1,.32,1);transform-style:preserve-3d;}
+.av:hover{border-color:var(--bac);transform:translateX(5px) rotateY(-3deg);}
+.av-ico{font-size:22px;flex-shrink:0;width:36px;text-align:center;}
+.av-title{font-family:'DM Serif Display',serif;font-size:15px;font-weight:400;margin-bottom:4px;}
+.av-desc{font-size:12.5px;color:var(--w2);font-weight:300;line-height:1.7;}
+
+/* ─ FAQ ─ */
+.faq-list{display:flex;flex-direction:column;gap:1px;background:var(--b);border-radius:var(--r);border:1px solid var(--b);overflow:hidden;margin-top:54px;}
+.faq-item{background:var(--s2);overflow:hidden;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:22px 28px;cursor:pointer;font-size:14px;font-weight:400;transition:background .2s;user-select:none;}
+.faq-q:hover{background:var(--s3);}
+.faq-ico{width:28px;height:28px;flex-shrink:0;background:var(--s4);border:1px solid var(--b);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--w3);transition:transform .35s cubic-bezier(.23,1,.32,1),border-color .25s;}
+.faq-item.open .faq-ico{transform:rotate(45deg);border-color:var(--bac);color:var(--ac2);}
+.faq-a{max-height:0;overflow:hidden;font-size:13.5px;color:var(--w2);font-weight:300;line-height:1.9;padding:0 28px;transition:max-height .4s cubic-bezier(.23,1,.32,1),padding .35s;}
+.faq-item.open .faq-a{max-height:220px;padding:0 28px 22px;}
+
+/* ─ CTA ─ */
+.cta-box{position:relative;overflow:hidden;border:1px solid var(--b2);border-radius:18px;padding:90px 68px;text-align:center;background:linear-gradient(160deg,var(--s3) 0%,var(--s2) 100%);}
+.cta-box::before{content:'';position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--b2),transparent);}
+.cta-glow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:500px;height:260px;background:radial-gradient(ellipse,rgba(29,107,88,.09) 0%,transparent 70%);pointer-events:none;animation:ctaAnim 5s ease-in-out infinite;}
+@keyframes ctaAnim{0%,100%{opacity:.8;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.08)}}
+.cta-title{font-family:'DM Serif Display',serif;font-size:clamp(34px,5vw,56px);font-weight:400;letter-spacing:-.02em;margin-bottom:16px;line-height:1.07;}
+.cta-sub{font-size:15px;color:var(--w2);max-width:500px;margin:0 auto 42px;line-height:1.85;font-weight:300;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* ─ FOOTER ─ */
+.foot-main{border-top:1px solid var(--b);padding:60px 56px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;position:relative;z-index:1;background:linear-gradient(180deg,var(--s1) 0%,var(--s0) 100%);}
+.foot-logo{font-family:'DM Serif Display',serif;font-size:20px;font-weight:400;letter-spacing:.01em;margin-bottom:12px;}
+.foot-tag{font-size:13px;color:var(--w3);line-height:1.7;max-width:260px;font-weight:300;margin-bottom:16px;}
+.foot-contact a{display:block;font-size:12px;color:var(--w3);text-decoration:none;margin-bottom:7px;transition:color .2s;}
+.foot-contact a:hover{color:var(--ac2);}
+.foot-col h5{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.16em;color:var(--w3);margin-bottom:18px;}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.foot-col a{font-size:12.5px;color:var(--w3);text-decoration:none;transition:color .2s,padding-left .22s;font-weight:300;}
+.foot-col a:hover{color:var(--w);padding-left:5px;}
+.foot-bottom{border-top:1px solid var(--b);padding:20px 56px;display:flex;justify-content:space-between;align-items:center;background:var(--s0);z-index:1;position:relative;}
+.foot-bottom p{font-size:11px;color:var(--w3);letter-spacing:.04em;}
+.foot-ac{color:var(--ac2);}
+
+/* ─ SCROLL REVEAL ─ */
+.sr{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.23,1,.32,1);}
+.sr.in{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ─ RESPONSIVE ─ */
+@media(max-width:1100px){.proc-grid{grid-template-columns:repeat(3,1fr);}.ind-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:960px){
+  nav{padding:0 24px;}
+  .nav-links li:not(:last-child){display:none;}
+  .wrap{padding:0 28px;}
+  .hero{padding:130px 24px 80px;}
+  .hcorner{display:none;}
+  .stats{grid-template-columns:1fr 1fr;}
+  .svc-grid,.p-grid{grid-template-columns:1fr;}
+  .why-grid,.test-grid{grid-template-columns:1fr 1fr;}
+  .proc-grid{grid-template-columns:1fr 1fr;}
+  .ind-grid{grid-template-columns:repeat(3,1fr);}
+  .about-grid{grid-template-columns:1fr;}
+  .cta-box{padding:56px 28px;}
+  .cta-btns{flex-direction:column;align-items:center;}
+  .foot-main{grid-template-columns:1fr 1fr;gap:36px;padding:40px 28px;}
+  .foot-bottom{padding:18px 28px;flex-direction:column;gap:8px;text-align:center;}
+  body{cursor:auto;}
+  #cd,#cr{display:none;}
+}
+@media(max-width:560px){
+  .why-grid,.test-grid,.ind-grid{grid-template-columns:1fr;}
+  .proc-grid{grid-template-columns:1fr;}
+  .foot-main{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div id="cd"></div><div id="cr"></div>
+<canvas id="bgc"></canvas>
+<div class="bg-grid"></div>
+<div class="grain"></div>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="/" class="logo"><div class="logo-mark">R</div>Rankrid</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li class="nav-drop">
+      <a href="/services.html">Services ▾</a>
+      <div class="nav-drop-menu">
+        <a href="/services/web-development.html">Web Development</a>
+        <a href="/services/seo.html">SEO Services</a>
+        <a href="/services/local-seo.html">Local SEO</a>
+        <a href="/services/branding.html">Branding & Design</a>
+        <a href="/services/social-media.html">Social Media Marketing</a>
+        <a href="/services/digital-marketing.html">Digital Marketing</a>
+        <a href="/services/content.html">Content Services</a>
+        <a href="/services/ecommerce.html">E-commerce Solutions</a>
+        <a href="/services/automation.html">Automation & SaaS</a>
+        <a href="/services/cloud.html">Cloud & Infrastructure</a>
+        <a href="/services/ui-ux.html">UI/UX Design</a>
+        <a href="/services/maintenance.html">Web Maintenance</a>
+      </div>
+    </li>
+    <li><a href="/portfolio.html">Our Work</a></li>
+    <li><a href="/contact.html" class="nav-cta">Free Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hcorner hc-tl"></div><div class="hcorner hc-tr"></div>
+  <div class="hcorner hc-bl"></div><div class="hcorner hc-br"></div>
+  <div class="hero-pill"><span class="pill-dot"></span>Full-Service Digital Agency — India</div>
+  <h1 class="hero-h1">
+    <span class="h1l">Web, SEO & Digital</span>
+    <span class="h1l">Solutions Under</span>
+    <span class="h1l">One Roof.</span>
+  </h1>
+  <p class="hero-sub">Rankrid is a trusted digital agency providing web development, SEO, branding, automation, and cloud services — built for businesses that want to grow, not just exist online.</p>
+  <div class="hero-ctas">
+    <a href="/contact.html" class="btn-solid">Book Free Consultation</a>
+    <a href="/services.html" class="btn-ghost">Explore Services</a>
+    <a href="/portfolio.html" class="btn-ac">Our Work</a>
+  </div>
+  <div class="hero-pins">
+    <div class="pin" style="top:20%;right:11%;animation-duration:4s;"><svg width="38" height="50" viewBox="0 0 48 60" fill="none"><ellipse cx="24" cy="56" rx="9" ry="3.5" fill="rgba(29,107,88,.2)"/><path d="M24 0C11 0 0 11 0 24C0 40 24 56 24 56S48 40 48 24C48 11 37 0 24 0Z" fill="#1d6b58"/><circle cx="24" cy="24" r="9" fill="#050507"/><circle cx="24" cy="24" r="4" fill="#24856e" opacity=".8"/></svg></div>
+    <div class="pin" style="top:40%;right:5%;animation-duration:5.5s;animation-delay:.8s;"><svg width="28" height="36" viewBox="0 0 48 60" fill="none"><path d="M24 0C11 0 0 11 0 24C0 40 24 56 24 56S48 40 48 24C48 11 37 0 24 0Z" fill="#1b3a6b" opacity=".8"/><circle cx="24" cy="24" r="8" fill="#050507"/></svg></div>
+    <div class="pin" style="top:62%;right:16%;animation-duration:3.8s;animation-delay:1.8s;"><svg width="20" height="26" viewBox="0 0 48 60" fill="none"><path d="M24 0C11 0 0 11 0 24C0 40 24 56 24 56S48 40 48 24C48 11 37 0 24 0Z" fill="#1d6b58" opacity=".5"/></svg></div>
+    <div class="pin" style="top:26%;left:9%;animation-duration:6s;animation-delay:.3s;"><svg width="20" height="26" viewBox="0 0 48 60" fill="none"><path d="M24 0C11 0 0 11 0 24C0 40 24 56 24 56S48 40 48 24C48 11 37 0 24 0Z" fill="#1b3a6b" opacity=".4"/></svg></div>
+    <div class="pin" style="top:68%;left:8%;animation-duration:4.8s;animation-delay:2.2s;"><svg width="24" height="31" viewBox="0 0 48 60" fill="none"><path d="M24 0C11 0 0 11 0 24C0 40 24 56 24 56S48 40 48 24C48 11 37 0 24 0Z" fill="#1d6b58" opacity=".45"/><circle cx="24" cy="24" r="8" fill="#050507"/></svg></div>
+  </div>
+</section>
+
+<!-- ═══ RIBBON ═══ -->
+<div class="ribbon"><div class="rib-track" id="ribTrack"></div></div>
+
+<!-- ═══ STATS ═══ -->
+<div class="stats" id="statsWrap">
+  <div class="stat sr"><div class="stat-n"><span id="c1">0</span><sup>+</sup></div><div class="stat-l">Projects Delivered</div></div>
+  <div class="stat sr d1"><div class="stat-n"><span id="c2">0</span><sup>+</sup></div><div class="stat-l">Happy Clients</div></div>
+  <div class="stat sr d2"><div class="stat-n">24<sup>/7</sup></div><div class="stat-l">Support Available</div></div>
+  <div class="stat sr d3"><div class="stat-n"><span id="c3">0</span><sup>+</sup></div><div class="stat-l">Cities Served</div></div>
+</div>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <p class="eyebrow sr">Our Services</p>
+    <h2 class="sec-title sr d1">Complete digital solutions from<br>design to deployment.</h2>
+    <p class="sec-sub sr d2">Web, SEO, automation, cloud, and everything in between — all under one trusted team.</p>
+    <div class="svc-grid">
+
+      <div class="svc sr" data-tilt>
+        <div class="svc-idx">01</div><div class="svc-icon">💻</div>
+        <h3 class="svc-title">Web Development</h3>
+        <p class="svc-desc">Custom websites, WordPress, e-commerce, and web applications built with clean code, mobile-first design, and performance at the core.</p>
+        <div class="svc-tags"><span class="svc-tag">WordPress</span><span class="svc-tag">Shopify</span><span class="svc-tag">React</span><span class="svc-tag">PWA</span></div>
+        <a href="/services/web-development.html" class="svc-link">Explore →</a>
+      </div>
+
+      <div class="svc sr d1" data-tilt>
+        <div class="svc-idx">02</div><div class="svc-icon">🎨</div>
+        <h3 class="svc-title">Branding & Design</h3>
+        <p class="svc-desc">Logo design, brand identity, UI/UX design, graphic design, and brand guidelines — everything needed to build a memorable, consistent brand.</p>
+        <div class="svc-tags"><span class="svc-tag">Logo</span><span class="svc-tag">Brand Identity</span><span class="svc-tag">UI/UX</span><span class="svc-tag">Print</span></div>
+        <a href="/services/branding.html" class="svc-link">Explore →</a>
+      </div>
+
+      <div class="svc sr d2" data-tilt>
+        <div class="svc-idx">03</div><div class="svc-icon">🔍</div>
+        <h3 class="svc-title">SEO Services</h3>
+        <p class="svc-desc">Technical SEO, on-page optimization, link building, keyword research, and SEO audits — engineered to rank you higher and drive organic traffic.</p>
+        <div class="svc-tags"><span class="svc-tag">Technical SEO</span><span class="svc-tag">On-Page</span><span class="svc-tag">Link Building</span></div>
+        <a href="/services/seo.html" class="svc-link">Explore →</a>
+      </div>
+
+      <div class="svc sr" data-tilt>
+        <div class="svc-idx">04</div><div class="svc-icon">📍</div>
+        <h3 class="svc-title">Local SEO</h3>
+        <p class="svc-desc">Google Business Profile optimization, local citations, NAP consistency, review management, and Maps 3-Pack ranking for local businesses across India.</p>
+        <div class="svc-tags"><span class="svc-tag">Google Maps</span><span class="svc-tag">Citations</span><span class="svc-tag">Reviews</span></div>
+        <a href="/services/local-seo.html" class="svc-link">Explore →</a>
+      </div>
+
+      <div class="svc sr d1" data-tilt>
+        <div class="svc-idx">05</div><div class="svc-icon">📱</div>
+        <h3 class="svc-title">Social Media Marketing</h3>
+        <p class="svc-desc">Strategy, content creation, community management, paid social advertising, and influencer marketing across Instagram, Facebook, LinkedIn, and more.</p>
+        <div class="svc-tags"><span class="svc-tag">Instagram</span><span class="svc-tag">Facebook</span><span class="svc-tag">LinkedIn</span></div>
+        <a href="/services/social-media.html" class="svc-link">Explore →</a>
+      </div>
+
+      <div class="svc sr d2" data-tilt>
+        <div class="svc-idx">06</div><div class="svc-icon">📈</div>
+        <h3 class="svc-title">Digital Marketing</h3>
+        <p class="svc-desc">PPC advertising, Google Ads, Facebook Ads, email marketing, conversion rate optimization, and analytics — campaigns built to deliver measurable ROI.</p>
+        <div class="svc-tags"><span class="svc-tag">Google Ads</span><span class="svc-tag">PPC</span><span class="svc-tag">Email</span><span class="svc-tag">CRO</span></div>
+        <a href="/services/digital-marketing.html" class="svc-link">Explore →</a>
+      </div>
+
+      <div class="svc sr" data-tilt>
+        <div class="svc-idx">07</div><div class="svc-icon">✍️</div>
+        <h3 class="svc-title">Content Services</h3>
+        <p class="svc-desc">Content writing, copywriting, blog management, video production, photography, and infographic design — content that ranks and converts.</p>
+        <div class="svc-tags"><span class="svc-tag">Copywriting</span><span class="svc-tag">Blog</span><span class="svc-tag">Video</span><span class="svc-tag">Photography</span></div>
+        <a href="/services/content.html" class="svc-link">Explore →</a>
+      </div>
+
+      <div class="svc sr d1" data-tilt>
+        <div class="svc-idx">08</div><div class="svc-icon">🛒</div>
+        <h3 class="svc-title">E-commerce Solutions</h3>
+        <p class="svc-desc">E-commerce development, shopping cart integration, payment gateway setup, inventory management, and e-commerce SEO — built to sell at scale.</p>
+        <div class="svc-tags"><span class="svc-tag">Shopify</span><span class="svc-tag">WooCommerce</span><span class="svc-tag">Magento</span></div>
+        <a href="/services/ecommerce.html" class="svc-link">Explore →</a>
+      </div>
+
+      <div class="svc sr d2" data-tilt>
+        <div class="svc-idx">09</div><div class="svc-icon">⚡</div>
+        <h3 class="svc-title">Automation & SaaS</h3>
+        <p class="svc-desc">Business process automation, custom SaaS development, WhatsApp API integration, workflow automation, and AI-powered tools that work while you sleep.</p>
+        <div class="svc-tags"><span class="svc-tag">WhatsApp API</span><span class="svc-tag">SaaS</span><span class="svc-tag">Automation</span></div>
+        <a href="/services/automation.html" class="svc-link">Explore →</a>
+      </div>
+
+      <div class="svc sr" data-tilt>
+        <div class="svc-idx">10</div><div class="svc-icon">☁️</div>
+        <h3 class="svc-title">Cloud & Infrastructure</h3>
+        <p class="svc-desc">Cloud hosting, AWS setup, Docker, Kubernetes, server management, security monitoring, and backups — reliable infrastructure your business can depend on.</p>
+        <div class="svc-tags"><span class="svc-tag">AWS</span><span class="svc-tag">Docker</span><span class="svc-tag">Kubernetes</span></div>
+        <a href="/services/cloud.html" class="svc-link">Explore →</a>
+      </div>
+
+      <div class="svc sr d1" data-tilt>
+        <div class="svc-idx">11</div><div class="svc-icon">🖥️</div>
+        <h3 class="svc-title">UI/UX Design</h3>
+        <p class="svc-desc">User research, wireframing, prototyping, and pixel-perfect interface design. We design experiences that feel effortless and convert visitors into customers.</p>
+        <div class="svc-tags"><span class="svc-tag">Figma</span><span class="svc-tag">Prototyping</span><span class="svc-tag">User Research</span></div>
+        <a href="/services/ui-ux.html" class="svc-link">Explore →</a>
+      </div>
+
+      <div class="svc sr d2" data-tilt>
+        <div class="svc-idx">12</div><div class="svc-icon">🔧</div>
+        <h3 class="svc-title">Web Maintenance & Support</h3>
+        <p class="svc-desc">AMC plans, security updates, performance monitoring, bug fixes, uptime tracking, and 24/7 support — your website stays fast, secure, and online.</p>
+        <div class="svc-tags"><span class="svc-tag">AMC Plans</span><span class="svc-tag">Security</span><span class="svc-tag">24/7 Support</span></div>
+        <a href="/services/maintenance.html" class="svc-link">Explore →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="sec" id="about" style="background:linear-gradient(180deg,var(--s0) 0%,var(--s1) 50%,var(--s0) 100%);">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow sr">About Rankrid</p>
+        <h2 class="sec-title sr d1">Your trusted digital growth partner.</h2>
+        <p class="sec-sub sr d2" style="max-width:100%;">We do not just build websites — we build secure, scalable digital systems that support real business growth. Our business-first approach means we understand your goals before we write a single line of code.</p>
+        <p class="sr d3" style="font-size:14px;color:var(--w2);font-weight:300;line-height:1.85;margin-top:16px;max-width:500px;">Trusted by businesses, startups, and institutions across India. We are hands-on, responsive, and accountable. We solve real problems with scalable solutions that grow with your business.</p>
+        <div class="about-badges sr d4">
+          <span class="ab">Timely Delivery</span><span class="ab">Quality Work</span><span class="ab">Fast Response</span>
+          <span class="ab">Cost Effective</span><span class="ab">24/7 Support</span><span class="ab">Secure & Reliable</span>
+          <span class="ab">Scalable Solutions</span><span class="ab">Modern Tech Stack</span><span class="ab">Result Driven</span>
+        </div>
+        <div style="margin-top:32px;" class="sr d4">
+          <a href="/about.html" class="btn-ghost">Know More About Us</a>
+        </div>
+      </div>
+      <div class="about-values sr d2">
+        <div class="av" data-tilt>
+          <div class="av-ico">🎯</div>
+          <div><div class="av-title">Business-First Thinking</div><div class="av-desc">We understand your goals before designing any solution. Technology serves your business, not the other way around.</div></div>
+        </div>
+        <div class="av" data-tilt>
+          <div class="av-ico">🔒</div>
+          <div><div class="av-title">Security & Stability by Default</div><div class="av-desc">From secure hosting to regular backups and monitoring, your digital assets are protected from day one.</div></div>
+        </div>
+        <div class="av" data-tilt>
+          <div class="av-ico">⚡</div>
+          <div><div class="av-title">Fast, Reliable Support</div><div class="av-desc">Clear SLAs, quick response times, and a team that is reachable when it matters most — not just during office hours.</div></div>
+        </div>
+        <div class="av" data-tilt>
+          <div class="av-ico">🤝</div>
+          <div><div class="av-title">Long-Term Partnership</div><div class="av-desc">We do not disappear after launch. We maintain, optimise, and evolve your digital systems continuously alongside your growth.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <p class="eyebrow sr">Our Process</p>
+    <h2 class="sec-title sr d1">A proven methodology<br>that delivers results.</h2>
+    <div class="proc-grid sr">
+      <div class="proc" data-tilt><div class="proc-n">01</div><div class="proc-ico">🔍</div><div class="proc-title">Discover & Understand</div><p class="proc-desc">We dive deep into your business, goals, and challenges to design the perfect solution.</p></div>
+      <div class="proc" data-tilt><div class="proc-n">02</div><div class="proc-ico">📐</div><div class="proc-title">Plan & Architect</div><p class="proc-desc">Strategic planning and architecture design for scalable, secure, future-ready solutions.</p></div>
+      <div class="proc" data-tilt><div class="proc-n">03</div><div class="proc-ico">⚙️</div><div class="proc-title">Build & Integrate</div><p class="proc-desc">Development with best practices, clean code, and seamless third-party integrations.</p></div>
+      <div class="proc" data-tilt><div class="proc-n">04</div><div class="proc-ico">🧪</div><div class="proc-title">Test & Secure</div><p class="proc-desc">Rigorous testing, security audits, and performance optimization before every launch.</p></div>
+      <div class="proc" data-tilt><div class="proc-n">05</div><div class="proc-ico">🚀</div><div class="proc-title">Launch & Support</div><p class="proc-desc">Smooth deployment followed by ongoing support to keep everything running perfectly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INDUSTRIES ═══ -->
+<section class="sec" style="background:linear-gradient(180deg,var(--s0) 0%,var(--s1) 50%,var(--s0) 100%);">
+  <div class="wrap">
+    <p class="eyebrow sr">Industries We Serve</p>
+    <h2 class="sec-title sr d1">Tailored solutions for<br>diverse business needs.</h2>
+    <div class="ind-grid sr">
+      <div class="ind-card"><div class="ind-ico">🎓</div><div class="ind-name">Education</div></div>
+      <div class="ind-card"><div class="ind-ico">🏠</div><div class="ind-name">Real Estate</div></div>
+      <div class="ind-card"><div class="ind-ico">🏥</div><div class="ind-name">Healthcare</div></div>
+      <div class="ind-card"><div class="ind-ico">✈️</div><div class="ind-name">Travel & Hospitality</div></div>
+      <div class="ind-card"><div class="ind-ico">🏪</div><div class="ind-name">Local Businesses</div></div>
+      <div class="ind-card"><div class="ind-ico">🚀</div><div class="ind-name">Startups & SaaS</div></div>
+      <div class="ind-card"><div class="ind-ico">💼</div><div class="ind-name">Professional Services</div></div>
+      <div class="ind-card"><div class="ind-ico">🛍️</div><div class="ind-name">Retail & E-commerce</div></div>
+      <div class="ind-card"><div class="ind-ico">🍽️</div><div class="ind-name">Food & Restaurant</div></div>
+      <div class="ind-card"><div class="ind-ico">🏦</div><div class="ind-name">Finance & Banking</div></div>
+      <div class="ind-card"><div class="ind-ico">⚖️</div><div class="ind-name">Legal Services</div></div>
+      <div class="ind-card"><div class="ind-ico">🏭</div><div class="ind-name">Manufacturing</div></div>
+      <div class="ind-card"><div class="ind-ico">🎬</div><div class="ind-name">Media & Entertainment</div></div>
+      <div class="ind-card"><div class="ind-ico">🤲</div><div class="ind-name">Non-profit & NGO</div></div>
+      <div class="ind-card"><div class="ind-ico">🚛</div><div class="ind-name">Logistics</div></div>
+      <div class="ind-card"><div class="ind-ico">🌾</div><div class="ind-name">Agriculture</div></div>
+      <div class="ind-card"><div class="ind-ico">💪</div><div class="ind-name">Fitness & Wellness</div></div>
+      <div class="ind-card"><div class="ind-ico">💄</div><div class="ind-name">Beauty & Cosmetics</div></div>
+      <div class="ind-card"><div class="ind-ico">📊</div><div class="ind-name">Consulting</div></div>
+      <div class="ind-card"><div class="ind-ico">💡</div><div class="ind-name">Technology & IT</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TECH STACK ═══ -->
+<section class="sec tech-sec">
+  <div class="wrap">
+    <p class="eyebrow sr">Technologies</p>
+    <h2 class="sec-title sr d1">We work with cutting-edge<br>technologies and platforms.</h2>
+  </div>
+  <div class="tech-scroll" style="margin-top:48px;">
+    <div class="tech-track" id="techRow1"></div>
+  </div>
+  <div class="tech-scroll" style="margin-top:12px;">
+    <div class="tech-track tech-track2" id="techRow2"></div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow sr">Client Testimonials</p>
+    <h2 class="sec-title sr d1">What our clients say about us.</h2>
+    <div class="test-grid">
+      <div class="test-card sr" data-tilt>
+        <div class="test-stars">⭐⭐⭐⭐⭐</div>
+        <p class="test-q">"Rankrid transformed our digital presence completely. Their team delivered a world-class website on time and the SEO results have been exceptional. Highly recommended."</p>
+        <div class="test-author"><div class="test-avatar">👨‍💼</div><div><div class="test-name">Rajesh Sharma</div><div class="test-role">CEO, TechStartup India</div></div></div>
+      </div>
+      <div class="test-card sr d1" data-tilt>
+        <div class="test-stars">⭐⭐⭐⭐⭐</div>
+        <p class="test-q">"The online admission system they built has streamlined our entire process. Professional, reliable, and they truly understand business needs. Best tech partner we have worked with."</p>
+        <div class="test-author"><div class="test-avatar">👩‍🏫</div><div><div class="test-name">Dr. Priya Nair</div><div class="test-role">Principal, Delhi Public School</div></div></div>
+      </div>
+      <div class="test-card sr d2" data-tilt>
+        <div class="test-stars">⭐⭐⭐⭐⭐</div>
+        <p class="test-q">"Our Google Maps ranking went from nowhere to the top 3 in under 60 days. The local SEO work Rankrid did for our clinic has been genuinely life-changing for the business."</p>
+        <div class="test-author"><div class="test-avatar">🏥</div><div><div class="test-name">Dr. Amit Patel</div><div class="test-role">Founder, Patel Dental Clinic</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section class="sec" id="pricing" style="background:linear-gradient(180deg,var(--s0) 0%,var(--s1) 50%,var(--s0) 100%);">
+  <div class="wrap">
+    <div class="pricing-hd">
+      <p class="eyebrow sr" style="justify-content:center;">Transparent Pricing</p>
+      <h2 class="sec-title sr d1">Simple plans. Honest prices.</h2>
+      <p class="sec-sub sr d2">No hidden fees. No long-term contracts. Every engagement starts with a free consultation. Cancel anytime.</p>
+    </div>
+    <div class="p-grid">
+      <div class="pc sr" data-tilt>
+        <div class="p-name">Starter</div>
+        <div class="p-price"><span class="p-cur">₹</span><span class="p-amt">9,999</span><span class="p-per"> one-time</span></div>
+        <div class="p-desc">The perfect foundation. Get your business fully set up and visible online — no monthly commitment.</div>
+        <div class="p-div"></div>
+        <ul class="p-feats">
+          <li><span class="fi fy"></span>Google Business Profile full setup & optimization</li>
+          <li><span class="fi fy"></span>5-page business website (WordPress)</li>
+          <li><span class="fi fy"></span>Basic on-page SEO setup</li>
+          <li><span class="fi fy"></span>15 local citation submissions</li>
+          <li><span class="fi fy"></span>Logo design & basic branding</li>
+          <li><span class="fi fy"></span>Mobile-responsive design</li>
+          <li><span class="fi fy"></span>1-month post-launch support</li>
+          <li><span class="fi fn"></span>Monthly SEO management</li>
+          <li><span class="fi fn"></span>Social media management</li>
+        </ul>
+        <a href="/contact.html" class="p-btn p-ghost">Get Started →</a>
+      </div>
+      <div class="pc pc-feat sr d1" data-tilt>
+        <div class="pop-tag">Most Popular — Best ROI</div>
+        <div class="p-name">Growth</div>
+        <div class="p-price"><span class="p-cur">₹</span><span class="p-amt">18,999</span><span class="p-per"> / month</span></div>
+        <div class="p-desc">Ongoing digital growth — SEO, content, social media, and reporting that compounds month after month.</div>
+        <div class="p-div"></div>
+        <ul class="p-feats">
+          <li><span class="fi fy"></span>Everything in Starter</li>
+          <li><span class="fi fy"></span>Monthly SEO management & reporting</li>
+          <li><span class="fi fy"></span>8 social media posts per month</li>
+          <li><span class="fi fy"></span>4 blog articles per month</li>
+          <li><span class="fi fy"></span>Google Ads management (basic)</li>
+          <li><span class="fi fy"></span>WhatsApp review campaigns</li>
+          <li><span class="fi fy"></span>Keyword rank tracking dashboard</li>
+          <li><span class="fi fy"></span>Monthly strategy call</li>
+          <li><span class="fi fn"></span>Custom automation & SaaS</li>
+        </ul>
+        <a href="/contact.html" class="p-btn p-solid">Get Growth Plan →</a>
+      </div>
+      <div class="pc sr d2" data-tilt>
+        <div class="p-name">Pro</div>
+        <div class="p-price"><span class="p-cur">₹</span><span class="p-amt">34,999</span><span class="p-per"> / month</span></div>
+        <div class="p-desc">Full-service digital dominance — web, SEO, social, ads, automation, and cloud, all managed end-to-end.</div>
+        <div class="p-div"></div>
+        <ul class="p-feats">
+          <li><span class="fi fy"></span>Everything in Growth</li>
+          <li><span class="fi fy"></span>Custom web application development</li>
+          <li><span class="fi fy"></span>Advanced Google & Meta Ads management</li>
+          <li><span class="fi fy"></span>Full social media management (all platforms)</li>
+          <li><span class="fi fy"></span>Business automation & integrations</li>
+          <li><span class="fi fy"></span>Cloud hosting & infrastructure management</li>
+          <li><span class="fi fy"></span>Dedicated account manager</li>
+          <li><span class="fi fy"></span>Fortnightly strategy calls</li>
+          <li><span class="fi fy"></span>Priority 2-hour support response</li>
+        </ul>
+        <a href="/contact.html" class="p-btn p-ghost">Go Pro →</a>
+      </div>
+    </div>
+    <p class="sr" style="text-align:center;margin-top:22px;font-size:12px;color:var(--w3);letter-spacing:.04em;">All plans include a free consultation. Custom enterprise quotes available on request.</p>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="sec">
+  <div class="wrap">
+    <p class="eyebrow sr">Questions</p>
+    <h2 class="sec-title sr d1">Common questions, honest answers.</h2>
+    <div class="faq-list sr">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What services does Rankrid provide?<div class="faq-ico">+</div></div><div class="faq-a">Rankrid provides end-to-end digital services including web development, SEO, local SEO, branding and design, social media marketing, digital marketing, content services, e-commerce solutions, business automation, SaaS development, UI/UX design, cloud and infrastructure management, and web maintenance. Everything under one trusted team.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does a typical website project take?<div class="faq-ico">+</div></div><div class="faq-a">A standard business website typically takes 2 to 4 weeks. E-commerce projects take 4 to 8 weeks, and custom web applications can take 8 to 16 weeks depending on complexity. We provide a clear timeline and milestones at the start of every project.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does SEO take to show results?<div class="faq-ico">+</div></div><div class="faq-a">Local SEO results are typically visible within 30 to 60 days. Broader SEO campaigns usually show measurable improvement within 90 days, with strong results at the 6-month mark. SEO is a long-term investment that compounds — the longer you invest, the stronger the returns.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you provide ongoing support after launch?<div class="faq-ico">+</div></div><div class="faq-a">Yes. We offer AMC (Annual Maintenance Contract) plans that include security updates, performance monitoring, uptime tracking, regular backups, and 24/7 support. We do not disappear after launch — we remain your long-term technology partner.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Which cities in India do you serve?<div class="faq-ico">+</div></div><div class="faq-a">We work with businesses across India — Mumbai, Pune, Bengaluru, Delhi, Hyderabad, Chennai, Ahmedabad, Jaipur, Surat, Nagpur, and beyond. All our services are delivered remotely, so location is never a barrier.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can you handle our entire digital presence?<div class="faq-ico">+</div></div><div class="faq-a">Absolutely. Our Pro plan is designed for exactly this — one team managing your website, SEO, social media, paid ads, automation, cloud infrastructure, and support. One point of contact, complete accountability, zero coordination overhead for you.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="sec" style="padding:80px 0 100px;">
+  <div class="wrap">
+    <div class="cta-box sr">
+      <div class="cta-glow"></div>
+      <h2 class="cta-title">Ready to elevate your<br>business with digital solutions?</h2>
+      <p class="cta-sub">Schedule a free consultation today. We will analyse your digital presence and tell you exactly how to grow it — no strings, no jargon.</p>
+      <div class="cta-btns">
+        <a href="/contact.html" class="btn-solid">Schedule Free Consultation</a>
+        <a href="tel:+919876543210" class="btn-ghost">Call Us Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="foot-main">
+  <div>
+    <div class="foot-logo">Rankrid</div>
+    <p class="foot-tag">A full-service digital agency in India — web development, SEO, branding, automation, and cloud services, all under one trusted team.</p>
+    <div class="foot-contact">
+      <a href="tel:+919876543210">+91 98765 43210</a>
+      <a href="https://wa.me/919876543210">WhatsApp: +91 98765 43210</a>
+      <a href="mailto:hello@rankrid.in">hello@rankrid.in</a>
+      <a href="#">Mumbai, Maharashtra, India</a>
+    </div>
+  </div>
+  <div class="foot-col">
+    <h5>Services</h5>
+    <ul>
+      <li><a href="/services/web-development.html">Web Development</a></li>
+      <li><a href="/services/seo.html">SEO Services</a></li>
+      <li><a href="/services/local-seo.html">Local SEO</a></li>
+      <li><a href="/services/branding.html">Branding & Design</a></li>
+      <li><a href="/services/social-media.html">Social Media</a></li>
+      <li><a href="/services/digital-marketing.html">Digital Marketing</a></li>
+    </ul>
+  </div>
+  <div class="foot-col">
+    <h5>More Services</h5>
+    <ul>
+      <li><a href="/services/content.html">Content Services</a></li>
+      <li><a href="/services/ecommerce.html">E-commerce</a></li>
+      <li><a href="/services/automation.html">Automation & SaaS</a></li>
+      <li><a href="/services/cloud.html">Cloud & Infrastructure</a></li>
+      <li><a href="/services/ui-ux.html">UI/UX Design</a></li>
+      <li><a href="/services/maintenance.html">Web Maintenance</a></li>
+    </ul>
+  </div>
+  <div class="foot-col">
+    <h5>Company</h5>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About Us</a></li>
+      <li><a href="/portfolio.html">Our Work</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/privacy.html">Privacy Policy</a></li>
+      <li><a href="/terms.html">Terms & Conditions</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="foot-bottom">
+  <p>© 2025 Rankrid. All rights reserved.</p>
+  <p class="foot-ac">Full-service digital agency — India.</p>
+</div>
+
+<script>
+/* ── CANVAS ── */
+(()=>{
+  const C=document.getElementById('bgc'),ctx=C.getContext('2d');
+  let W,H,pts=[];
+  const rsz=()=>{W=C.width=innerWidth;H=C.height=innerHeight;};rsz();addEventListener('resize',rsz);
+  class P{constructor(){this.init(true);}init(s){this.x=Math.random()*W;this.y=s?Math.random()*H:H+8;this.vx=(Math.random()-.5)*.12;this.vy=-(Math.random()*.22+.05);this.r=Math.random()*1.4+.3;this.a=0;this.ta=Math.random()*.28+.06;this.life=0;this.ml=Math.random()*360+180;}step(){this.life++;const f=40;if(this.life<f)this.a=this.ta*(this.life/f);else if(this.life>this.ml-f)this.a=this.ta*((this.ml-this.life)/f);else this.a=this.ta;this.x+=this.vx;this.y+=this.vy;if(this.life>=this.ml)this.init();}draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=`rgba(221,225,235,${this.a*.5})`;ctx.fill();}}
+  for(let i=0;i<50;i++)pts.push(new P());
+  (function loop(){ctx.clearRect(0,0,W,H);pts.forEach(p=>{p.step();p.draw();});requestAnimationFrame(loop);})();
+})();
+
+/* ── CURSOR ── */
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px';});
+(function a(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(a);})();
+document.querySelectorAll('a,button,.svc,.pc,.av,.ind-card,.test-card,.proc,.why-card,.stat').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
+});
+
+/* ── NAV ── */
+addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40),{passive:true});
+
+/* ── RIBBON ── */
+const words=['Web Development','Local SEO','Branding & Design','Digital Marketing','E-commerce Solutions','Automation & SaaS','Cloud Infrastructure','Social Media Marketing','Content Services','UI/UX Design','Web Maintenance'];
+const rt=document.getElementById('ribTrack');
+[...words,...words].forEach(w=>{rt.innerHTML+=`<span class="rib-item"><span class="rib-dot"></span>${w}</span>`;});
+
+/* ── TECH STACK ── */
+const techs1=[['WordPress','wordpress'],['Shopify','shopify'],['React','react'],['Node.js','nodedotjs'],['PHP','php'],['Python','python'],['MySQL','mysql'],['MongoDB','mongodb'],['AWS','amazonaws'],['Docker','docker']];
+const techs2=[['Kubernetes','kubernetes'],['TypeScript','typescript'],['JavaScript','javascript'],['Vue.js','vuedotjs'],['Tailwind CSS','tailwindcss'],['Magento','magento'],['Git','git'],['OpenCart','opencart'],['Joomla','joomla'],['Drupal','drupal']];
+const buildRow=(arr,el)=>{[...arr,...arr].forEach(([n,s])=>{document.getElementById(el).innerHTML+=`<div class="tech-item"><img class="tech-icon" src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/${s}.svg" alt="${n}" onerror="this.style.display='none'"><span class="tech-name">${n}</span></div>`;});};
+buildRow(techs1,'techRow1');buildRow(techs2,'techRow2');
+
+/* ── SCROLL REVEAL ── */
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.08});
+document.querySelectorAll('.sr').forEach(el=>ro.observe(el));
+
+/* ── COUNTERS ── */
+const ctrs=[{id:'c1',v:150},{id:'c2',v:120},{id:'c3',v:80}];
+let counted=false;
+new IntersectionObserver(es=>{
+  if(es[0].isIntersecting&&!counted){counted=true;ctrs.forEach(t=>{let n=0;const el=document.getElementById(t.id),step=t.v/55;const tmr=setInterval(()=>{n=Math.min(n+step,t.v);el.textContent=Math.floor(n);if(n>=t.v)clearInterval(tmr);},20);});}
+},{threshold:.5}).observe(document.getElementById('statsWrap'));
+
+/* ── UNIVERSAL 3D TILT ── */
+document.querySelectorAll('[data-tilt]').forEach(el=>{
+  el.addEventListener('mousemove',e=>{
+    el.style.transition='none';
+    const b=el.getBoundingClientRect();
+    const x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;
+    el.style.transform=`perspective(900px) rotateX(${-y*10}deg) rotateY(${x*10}deg) translateZ(8px)`;
+    el.style.setProperty('--cx',(x+.5)*100+'%');el.style.setProperty('--cy',(y+.5)*100+'%');
+  });
+  el.addEventListener('mouseleave',()=>{el.style.transition='transform .6s cubic-bezier(.23,1,.32,1)';el.style.transform='perspective(900px) rotateX(0) rotateY(0) translateZ(0)';});
+});
+
+/* ── FAQ ── */
+function toggleFaq(btn){const item=btn.parentElement,was=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open');}
+</script>
+</body>
+</html>

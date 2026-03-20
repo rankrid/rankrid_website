@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Pricing — Rankrid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/><style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#03060f;--bg2:#060b1a;--bg3:#0a1128;--neon:#00f5d4;--neon2:#00c2ff;--neon3:#a259ff;--accent:#ff4f81;--text:#eef2ff;--muted:#7889b3;--border:rgba(0,245,212,0.18);--border2:rgba(162,89,255,0.22);--glow-teal:rgba(0,245,212,0.55);--card-bg:rgba(6,11,26,0.82)}
+html{scroll-behavior:smooth}
+body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.65}
+h1,h2,h3,h4,h5{font-family:"Outfit",sans-serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--neon3);border-radius:10px}
+.bg-orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.18;animation:orbFloat 18s ease-in-out infinite alternate}
+.orb1{width:500px;height:500px;background:var(--neon);top:-150px;left:-150px;animation-delay:0s}
+.orb2{width:420px;height:420px;background:var(--neon3);top:35%;right:-140px;animation-delay:-7s}
+.orb3{width:350px;height:350px;background:var(--neon2);bottom:0;left:40%;animation-delay:-13s}
+@keyframes orbFloat{0%{transform:translate(0,0) scale(1)}50%{transform:translate(28px,-38px) scale(1.07)}100%{transform:translate(-18px,28px) scale(.95)}}
+.grid-overlay{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(0,245,212,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,212,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 40%,transparent 80%)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.section-tag{display:inline-block;font-family:"Outfit",sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--neon);border:1px solid rgba(0,245,212,.35);background:rgba(0,245,212,.06);padding:6px 16px;border-radius:999px;margin-bottom:20px}
+.section-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;margin-bottom:16px;background:linear-gradient(135deg,#fff 30%,var(--neon) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{font-size:1rem;color:var(--muted);max-width:580px;margin-bottom:48px;line-height:1.7}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(3,6,15,.75);backdrop-filter:blur(22px);border-bottom:1px solid rgba(0,245,212,.12);transition:background .3s}
+.nav-logo{font-family:"Outfit",sans-serif;font-size:1.5rem;font-weight:900;background:linear-gradient(90deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-family:"Outfit",sans-serif;font-size:.9rem;font-weight:500;color:var(--muted);position:relative;transition:color .2s}
+.nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--neon);border-radius:2px;transition:width .25s ease}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-cta{font-family:"Outfit",sans-serif;font-size:.88rem;font-weight:700;padding:9px 22px;border-radius:999px;background:linear-gradient(135deg,var(--neon),var(--neon2));color:#020a14;box-shadow:0 0 26px rgba(0,245,212,.45);transition:transform .18s,box-shadow .18s;display:inline-block}
+.nav-cta:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 0 40px rgba(0,245,212,.7)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{display:block;width:26px;height:2px;background:var(--neon);border-radius:2px;transition:.3s}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(3,6,15,.97);backdrop-filter:blur(22px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:40px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:"Outfit",sans-serif;font-size:1.3rem;font-weight:700;color:var(--text)}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:32px 26px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.card:hover{transform:translateY(-8px);border-color:rgba(0,245,212,.4);box-shadow:0 28px 80px rgba(0,0,0,.7),0 0 36px rgba(0,245,212,.1)}
+.btn-main{font-family:"Outfit",sans-serif;font-size:.98rem;font-weight:700;padding:13px 34px;border-radius:999px;background:linear-gradient(135deg,var(--neon),var(--neon2));color:#020a14;box-shadow:0 0 32px rgba(0,245,212,.5);border:none;cursor:pointer;transition:transform .18s,box-shadow .18s;display:inline-block}
+.btn-main:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 0 50px rgba(0,245,212,.75)}
+.btn-ghost{font-family:"Outfit",sans-serif;font-size:.95rem;font-weight:600;padding:12px 28px;border-radius:999px;background:transparent;border:1px solid rgba(0,245,212,.35);color:var(--text);cursor:pointer;transition:background .2s,border-color .2s,transform .18s;display:inline-block}
+.btn-ghost:hover{background:rgba(0,245,212,.06);border-color:var(--neon);transform:translateY(-2px)}
+.page-hero{padding:130px 0 72px;position:relative;overflow:hidden;text-align:center}
+.page-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;letter-spacing:-.03em;margin-bottom:20px;background:linear-gradient(135deg,#fff 20%,var(--neon) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-hero p{font-size:1.05rem;color:var(--muted);max-width:600px;margin:0 auto 36px}
+.footer{border-top:1px solid rgba(0,245,212,.1);padding:56px 0 28px;background:var(--bg)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.footer-logo{font-family:"Outfit",sans-serif;font-size:1.35rem;font-weight:900;background:linear-gradient(90deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap}
+.footer-links a{font-size:.86rem;color:var(--muted);transition:color .2s}
+.footer-links a:hover{color:var(--neon)}
+.footer-copy{font-size:.78rem;color:var(--muted)}
+.footer-divider{height:1px;background:rgba(0,245,212,.07);margin:28px 0 20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.faq-item{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:12px}
+.faq-q{padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:"Outfit",sans-serif;font-weight:600;font-size:.95rem;color:var(--text);transition:background .2s}
+.faq-q:hover{background:rgba(0,245,212,.04)}
+.faq-q .arrow{font-size:.8rem;color:var(--neon);transition:transform .3s}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease;padding:0 24px;font-size:.9rem;color:var(--muted);line-height:1.65}
+.faq-item.open .faq-a{max-height:300px;padding:0 24px 20px}
+.faq-item.open .arrow{transform:rotate(180deg)}
+.icon-box{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px}
+.icon-teal{background:rgba(0,245,212,.1);box-shadow:0 0 22px rgba(0,245,212,.22)}
+.icon-blue{background:rgba(0,194,255,.1);box-shadow:0 0 22px rgba(0,194,255,.22)}
+.icon-purple{background:rgba(162,89,255,.1);box-shadow:0 0 22px rgba(162,89,255,.22)}
+.icon-pink{background:rgba(255,79,129,.1);box-shadow:0 0 22px rgba(255,79,129,.22)}
+.icon-gold{background:rgba(255,183,0,.1);box-shadow:0 0 22px rgba(255,183,0,.22)}
+.icon-green{background:rgba(0,224,136,.1);box-shadow:0 0 22px rgba(0,224,136,.22)}
+.process-step{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:30px 24px;text-align:center;transition:transform .3s,box-shadow .3s}
+.process-step:hover{transform:translateY(-8px);box-shadow:0 24px 70px rgba(0,0,0,.6),0 0 26px rgba(0,245,212,.1)}
+.step-num{font-family:"Outfit",sans-serif;font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;line-height:1}
+.pricing-card{background:var(--card-bg);border:1px solid rgba(0,245,212,.12);border-radius:24px;padding:36px 28px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,border-color .3s}
+.pricing-card::after{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,212,.5),transparent)}
+.pricing-card:hover{transform:translateY(-12px);box-shadow:0 36px 90px rgba(0,0,0,.8),0 0 50px rgba(0,245,212,.1);border-color:rgba(0,245,212,.35)}
+.pricing-card.featured{border-color:var(--neon);box-shadow:0 0 55px rgba(0,245,212,.17),0 18px 70px rgba(0,0,0,.7);background:linear-gradient(160deg,rgba(0,245,212,.06),rgba(6,11,26,.95) 60%)}
+.pricing-card.featured:hover{box-shadow:0 40px 100px rgba(0,0,0,.85),0 0 75px rgba(0,245,212,.25)}
+.popular-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);font-family:"Outfit",sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(90deg,var(--neon),var(--neon2));color:#020a14;padding:5px 20px;border-radius:0 0 12px 12px}
+.p-amount{font-family:"Outfit",sans-serif;font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.p-per{font-size:.85rem;color:var(--muted)}
+.pricing-btn{display:block;width:100%;text-align:center;font-family:"Outfit",sans-serif;font-size:.93rem;font-weight:700;padding:13px;border-radius:999px;border:none;cursor:pointer;transition:transform .18s,box-shadow .18s;text-decoration:none}
+.pricing-btn.solid{background:linear-gradient(135deg,var(--neon),var(--neon2));color:#020a14;box-shadow:0 0 30px rgba(0,245,212,.4)}
+.pricing-btn.solid:hover{transform:translateY(-2px);box-shadow:0 0 46px rgba(0,245,212,.65)}
+.pricing-btn.outline{background:transparent;border:1px solid rgba(0,245,212,.3);color:var(--text)}
+.pricing-btn.outline:hover{background:rgba(0,245,212,.06);border-color:var(--neon);transform:translateY(-2px)}
+.p-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin:20px 0 26px}
+.p-features li{display:flex;align-items:flex-start;gap:9px;font-size:.88rem;color:var(--muted)}
+.chk{width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.chk.y{background:rgba(0,245,212,.1);color:var(--neon);border:1px solid rgba(0,245,212,.3)}
+.chk.n{background:rgba(255,255,255,.04);color:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.08)}
+.cta-strip{padding:90px 0;background:rgba(6,11,26,.5);position:relative;overflow:hidden;text-align:center}
+.cta-strip h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;background:linear-gradient(135deg,#fff 20%,var(--neon) 80%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+.cta-strip p{font-size:1rem;color:var(--muted);margin-bottom:34px}
+.cta-glow{position:absolute;width:500px;height:500px;border-radius:50%;filter:blur(110px);opacity:.16;background:var(--neon);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;animation:breathe 6s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.16;transform:translate(-50%,-50%) scale(1)}50%{opacity:.25;transform:translate(-50%,-50%) scale(1.14)}}
+.testi-card{background:var(--card-bg);border:1px solid var(--border2);border-radius:22px;padding:32px 26px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+.testi-card:hover{transform:translateY(-8px);border-color:rgba(162,89,255,.45);box-shadow:0 28px 80px rgba(0,0,0,.7),0 0 40px rgba(162,89,255,.1)}
+.testi-card::before{content:"“";position:absolute;top:12px;right:22px;font-size:6rem;font-family:Georgia,serif;line-height:1;color:rgba(162,89,255,.12);pointer-events:none}
+.stat-box{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:32px 24px;text-align:center;transition:transform .3s,box-shadow .3s}
+.stat-box:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.stat-num{font-family:"Outfit",sans-serif;font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px}
+.stat-label{font-size:.85rem;color:var(--muted);font-weight:500}
+.tag-pill{display:inline-block;font-family:"Outfit",sans-serif;font-size:.75rem;font-weight:600;padding:5px 14px;border-radius:999px;background:rgba(0,245,212,.07);border:1px solid rgba(0,245,212,.2);color:var(--neon);margin:4px}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,212,.2),transparent);margin:60px 0}
+@media(max-width:900px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}.nav-links,.nav-cta{display:none}.hamburger{display:flex}}
+@media(max-width:560px){.grid-3,.grid-4,.grid-2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bg-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+<div class="grid-overlay"></div>
+<nav class="navbar">
+  <a href="index_v5.html" class="nav-logo">Rankrid</a>
+  <div class="nav-links"><a href='index_v5.html'>Home</a>
+<a href='services.html'>Services</a>
+<a href='about.html'>About</a>
+<a href='pricing.html' class='active'>Pricing</a>
+<a href='contact.html'>Contact</a>
+</div>
+  <a href="contact.html" class="nav-cta">Free Consultation →</a>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index_v5.html" onclick="toggleMenu()">Home</a>
+  <a href="services.html" onclick="toggleMenu()">Services</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="pricing.html" onclick="toggleMenu()">Pricing</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <a href="contact.html" class="btn-main" style="margin-top:8px">Free Consultation →</a>
+</div>
+
+<section class="page-hero"><div class="container"><div class="reveal">
+  <div class="section-tag">Pricing</div>
+  <h1>Simple, honest pricing<br/>for every business</h1>
+  <p>No hidden fees. No long-term lock-in. Every engagement starts with a free consultation. Cancel anytime.</p>
+</div></div></section>
+
+<!-- LOCAL SEO PLANS -->
+<section style="padding:60px 0 80px"><div class="container">
+  <div class="reveal" style="text-align:center;margin-bottom:52px">
+    <div class="section-tag">Local SEO Plans</div>
+    <h2 class="section-title">Get found on Google Maps</h2>
+    <p style="color:var(--muted);max-width:520px;margin:0 auto">For clinics, restaurants, salons, gyms, and all local businesses across India.</p>
+  </div>
+  <div class="grid-3">
+    <div class="pricing-card tilt-card reveal" style="transition-delay:.05s">
+      <div style="font-size:.75rem;font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);margin-bottom:8px">Starter</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:6px">Google Ready</div>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:22px">Get listed and found on Google — fast. One-time setup, no ongoing fees.</p>
+      <div style="margin-bottom:22px"><span class="p-amount">₹2,999</span><span class="p-per"> one-time</span><br/><span style="font-size:.8rem;color:var(--muted)">No monthly fees</span></div>
+      <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,212,.25),transparent);margin-bottom:20px"></div>
+      <ul class="p-features">
+        <li><span class="chk y">✓</span>Google Business Profile setup</li>
+        <li><span class="chk y">✓</span>Business info, photos & category</li>
+        <li><span class="chk y">✓</span>Verify & publish listing</li>
+        <li><span class="chk y">✓</span>WhatsApp link on listing</li>
+        <li><span class="chk y">✓</span>1 month basic report</li>
+        <li><span class="chk n">✗</span>Ongoing SEO management</li>
+        <li><span class="chk n">✗</span>Review strategy</li>
+      </ul>
+      <a href="contact.html" class="pricing-btn outline">Get Started</a>
+    </div>
+    <div class="pricing-card featured tilt-card reveal" style="transition-delay:.12s">
+      <div class="popular-badge">⚡ Most Popular</div>
+      <div style="font-size:.75rem;font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);margin-bottom:8px">Growth</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:6px">Rank & Grow</div>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:22px">The complete package for businesses serious about Google Maps rankings.</p>
+      <div style="margin-bottom:22px"><span class="p-amount">₹4,999</span><span class="p-per">/month</span><br/><span style="font-size:.8rem;color:var(--muted)">+ ₹2,999 one-time setup</span></div>
+      <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,212,.25),transparent);margin-bottom:20px"></div>
+      <ul class="p-features">
+        <li><span class="chk y">✓</span>Everything in Starter</li>
+        <li><span class="chk y">✓</span>Monthly local SEO management</li>
+        <li><span class="chk y">✓</span>Google Maps ranking push</li>
+        <li><span class="chk y">✓</span>5-star review strategy</li>
+        <li><span class="chk y">✓</span>Respond to negative reviews</li>
+        <li><span class="chk y">✓</span>Monthly growth report</li>
+        <li><span class="chk n">✗</span>Professional website</li>
+      </ul>
+      <a href="contact.html" class="pricing-btn solid">Start Growing →</a>
+    </div>
+    <div class="pricing-card tilt-card reveal" style="transition-delay:.19s">
+      <div style="font-size:.75rem;font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);margin-bottom:8px">Pro</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:6px">Dominate Local</div>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:22px">Full online presence — SEO, website, and WhatsApp all working together.</p>
+      <div style="margin-bottom:22px"><span class="p-amount">₹7,999</span><span class="p-per">/month</span><br/><span style="font-size:.8rem;color:var(--muted)">+ ₹4,999 one-time setup</span></div>
+      <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,212,.25),transparent);margin-bottom:20px"></div>
+      <ul class="p-features">
+        <li><span class="chk y">✓</span>Everything in Growth</li>
+        <li><span class="chk y">✓</span>Professional mobile website</li>
+        <li><span class="chk y">✓</span>WhatsApp Business full setup</li>
+        <li><span class="chk y">✓</span>Priority support (2h response)</li>
+        <li><span class="chk y">✓</span>Quarterly strategy call</li>
+        <li><span class="chk y">✓</span>Competitor domination plan</li>
+        <li><span class="chk y">✓</span>Full website SEO</li>
+      </ul>
+      <a href="contact.html" class="pricing-btn outline">Go Pro</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- AGENCY / DIGITAL SERVICES PLANS -->
+<section style="padding:20px 0 80px;background:rgba(6,11,26,.5)"><div class="container">
+  <div class="reveal" style="text-align:center;margin-bottom:52px">
+    <div class="section-tag">Digital Agency Plans</div>
+    <h2 class="section-title">Full-service digital growth</h2>
+    <p style="color:var(--muted);max-width:520px;margin:0 auto">For startups, SMEs, and growing businesses that need web, SEO, content, and marketing under one roof.</p>
+  </div>
+  <div class="grid-3">
+    <div class="pricing-card tilt-card reveal" style="transition-delay:.05s">
+      <div style="font-size:.75rem;font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);margin-bottom:8px">Essential</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:6px">Digital Foundation</div>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:22px">Website + SEO + reporting. Everything a business needs to get started online properly.</p>
+      <div style="margin-bottom:22px"><span class="p-amount">₹9,999</span><span class="p-per">/month</span><br/><span style="font-size:.8rem;color:var(--muted)">+ one-time setup fee</span></div>
+      <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,212,.25),transparent);margin-bottom:20px"></div>
+      <ul class="p-features">
+        <li><span class="chk y">✓</span>5-page professional website</li>
+        <li><span class="chk y">✓</span>On-page SEO setup</li>
+        <li><span class="chk y">✓</span>Google Analytics & Search Console</li>
+        <li><span class="chk y">✓</span>Monthly SEO report</li>
+        <li><span class="chk y">✓</span>Website maintenance included</li>
+        <li><span class="chk n">✗</span>Content creation</li>
+        <li><span class="chk n">✗</span>Social media / ads</li>
+      </ul>
+      <a href="contact.html" class="pricing-btn outline">Get Started</a>
+    </div>
+    <div class="pricing-card featured tilt-card reveal" style="transition-delay:.12s">
+      <div class="popular-badge">⚡ Best Value</div>
+      <div style="font-size:.75rem;font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);margin-bottom:8px">Growth</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:6px">Scale & Dominate</div>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:22px">Full digital stack — web, SEO, content, and social media all managed together.</p>
+      <div style="margin-bottom:22px"><span class="p-amount">₹19,999</span><span class="p-per">/month</span><br/><span style="font-size:.8rem;color:var(--muted)">+ one-time setup fee</span></div>
+      <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,212,.25),transparent);margin-bottom:20px"></div>
+      <ul class="p-features">
+        <li><span class="chk y">✓</span>Everything in Essential</li>
+        <li><span class="chk y">✓</span>Monthly SEO management</li>
+        <li><span class="chk y">✓</span>4 SEO blog articles/month</li>
+        <li><span class="chk y">✓</span>Social media (2 platforms)</li>
+        <li><span class="chk y">✓</span>12 social posts/month</li>
+        <li><span class="chk y">✓</span>Competitor tracking</li>
+        <li><span class="chk n">✗</span>Paid ad management</li>
+      </ul>
+      <a href="contact.html" class="pricing-btn solid">Start Growing →</a>
+    </div>
+    <div class="pricing-card tilt-card reveal" style="transition-delay:.19s">
+      <div style="font-size:.75rem;font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--neon);margin-bottom:8px">Enterprise</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:6px">Full Agency Partner</div>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:22px">A dedicated team handling your entire digital presence — web, SEO, ads, social, and analytics.</p>
+      <div style="margin-bottom:22px"><span class="p-amount">Custom</span><br/><span style="font-size:.8rem;color:var(--muted)">Tailored to your business</span></div>
+      <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,212,.25),transparent);margin-bottom:20px"></div>
+      <ul class="p-features">
+        <li><span class="chk y">✓</span>Everything in Growth</li>
+        <li><span class="chk y">✓</span>Paid ads management (Google + Meta)</li>
+        <li><span class="chk y">✓</span>Dedicated account manager</li>
+        <li><span class="chk y">✓</span>Weekly strategy calls</li>
+        <li><span class="chk y">✓</span>Custom reporting dashboard</li>
+        <li><span class="chk y">✓</span>Priority 24/7 support</li>
+        <li><span class="chk y">✓</span>Quarterly business reviews</li>
+      </ul>
+      <a href="contact.html" class="pricing-btn outline">Get a Custom Quote</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ONE-TIME SERVICES -->
+<section style="padding:20px 0 80px"><div class="container">
+  <div class="reveal" style="text-align:center;margin-bottom:48px">
+    <div class="section-tag">One-Time Projects</div>
+    <h2 class="section-title">Pay once, keep forever</h2>
+    <p style="color:var(--muted);max-width:520px;margin:0 auto">No monthly commitment. Fixed price, fixed scope. Perfect for specific projects.</p>
+  </div>
+  <div class="grid-4">
+    <div class="card reveal" style="transition-delay:.05s;text-align:center">
+      <div style="font-size:2rem;margin-bottom:12px">💻</div>
+      <h4 style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:8px">Website Design</h4>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:14px">5-page professional website, mobile-friendly & SEO-ready</p>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">From ₹4,999</div>
+    </div>
+    <div class="card reveal" style="transition-delay:.10s;text-align:center">
+      <div style="font-size:2rem;margin-bottom:12px">🎨</div>
+      <h4 style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:8px">Logo & Branding</h4>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:14px">Logo + brand identity + guidelines delivered in all formats</p>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">From ₹4,999</div>
+    </div>
+    <div class="card reveal" style="transition-delay:.15s;text-align:center">
+      <div style="font-size:2rem;margin-bottom:12px">🔬</div>
+      <h4 style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:8px">SEO Audit</h4>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:14px">Full technical + on-page audit with a detailed action plan</p>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">From ₹2,999</div>
+    </div>
+    <div class="card reveal" style="transition-delay:.20s;text-align:center">
+      <div style="font-size:2rem;margin-bottom:12px">🛒</div>
+      <h4 style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:8px">E-Commerce Store</h4>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:14px">Shopify or WooCommerce store with payment integration</p>
+      <div style="font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,var(--neon),var(--neon2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">From ₹9,999</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section style="padding:60px 0 80px;background:rgba(6,11,26,.5)"><div class="container">
+  <div class="reveal" style="text-align:center;margin-bottom:40px">
+    <div class="section-tag">FAQs</div>
+    <h2 class="section-title">Pricing questions answered</h2>
+  </div>
+  <div style="max-width:700px;margin:0 auto">
+    <div class="faq-item"><div class="faq-q">Are there any hidden fees? <span class="arrow">▼</span></div><div class="faq-a">Never. Every quote includes all costs upfront. If scope changes, we discuss it with you before any additional charges apply. No surprises.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I cancel my monthly plan anytime? <span class="arrow">▼</span></div><div class="faq-a">Yes — all our monthly plans are month-to-month with no long-term contracts. You can cancel with 30 days notice. We're confident in our results so we don't need to lock you in.</div></div>
+    <div class="faq-item"><div class="faq-q">Do you offer discounts for annual plans? <span class="arrow">▼</span></div><div class="faq-a">Yes — clients who pay annually receive 2 months free (equivalent to a ~17% discount). Contact us for annual pricing on any plan.</div></div>
+    <div class="faq-item"><div class="faq-q">What payment methods do you accept? <span class="arrow">▼</span></div><div class="faq-a">UPI, bank transfer, Razorpay (cards, net banking), and cheque for corporate clients. GST invoices provided for all payments.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I start with a one-time project and upgrade later? <span class="arrow">▼</span></div><div class="faq-a">Absolutely. Many clients start with a one-time website or audit, see the quality of our work, and then move to a monthly plan. There's no pressure either way.</div></div>
+  </div>
+</div></section>
+
+<section class="cta-strip"><div class="cta-glow"></div><div class="container reveal">
+  <h2>Not sure which plan?<br/>Let's figure it out together.</h2>
+  <p>Book a free consultation — we'll audit your business and recommend exactly what you need. No pressure, no sales pitch.</p>
+  <a href="contact.html" class="btn-main">Book Free Consultation →</a>
+</div></section>
+
+<footer class="footer"><div class="container">
+  <div class="footer-inner">
+    <div class="footer-logo">Rankrid</div>
+    <div class="footer-links">
+      <a href="index_v5.html">Home</a><a href="services.html">Services</a>
+      <a href="about.html">About</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 Rankrid. All rights reserved.</div>
+  </div>
+  <div class="footer-divider"></div>
+  <p style="font-size:.78rem;color:var(--muted);text-align:center">Full-service digital agency — India · Made with ❤️ for growing businesses</p>
+</div></footer>
+<script>
+function toggleMenu(){document.getElementById("mobileMenu").classList.toggle("open")}
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add("visible");obs.unobserve(el.target)}})},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+window.addEventListener("scroll",()=>{const n=document.querySelector(".navbar");if(window.scrollY>60){n.style.background="rgba(3,6,15,.96)";n.style.boxShadow="0 4px 28px rgba(0,0,0,.5)"}else{n.style.background="rgba(3,6,15,.75)";n.style.boxShadow="none"}});
+document.querySelectorAll(".faq-q").forEach(q=>{q.addEventListener("click",()=>q.parentElement.classList.toggle("open"))});
+document.querySelectorAll(".tilt-card").forEach(card=>{
+  card.addEventListener("mousemove",e=>{const r=card.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;card.style.transform=`perspective(900px) rotateX(${-(y/(r.height/2))*6}deg) rotateY(${(x/(r.width/2))*8}deg) translateY(-10px) scale(1.01)`;});
+  card.addEventListener("mouseleave",()=>{card.style.transform=""});
+});
+</script>
+</body></html>
